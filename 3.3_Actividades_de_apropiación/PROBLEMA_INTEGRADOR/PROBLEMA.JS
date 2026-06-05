@@ -1,49 +1,30 @@
-let nombres = ["Ana", "Luis", "Carlos"];
+let cantidad = 3;
 
-let nota1 = [80, 90, 70];
-let nota2 = [90, 95, 80];
-let nota3 = [85, 100, 75];
+let nombres = ["Ana", "Juan", "Pedro"];
+let promedios = [4.3, 4.8, 3.5];
 
-let promedios = [];
+// Búsqueda por nombre
 
-for (let i = 0; i < nombres.length; i++) {
+let buscar = "Juan";
 
-    let promedio = (nota1[i] + nota2[i] + nota3[i]) / 3;
-
-    promedios.push(promedio);
-}
-
-for (let i = 0; i < promedios.length; i++) {
-
-    for (let j = 0; j < promedios.length - 1; j++) {
-
-        if (promedios[j] < promedios[j + 1]) {
-
-            let aux = promedios[j];
-            promedios[j] = promedios[j + 1];
-            promedios[j + 1] = aux;
-
-        let auxNombre = nombres[j];
-          nombres[j] = nombres[j + 1];
-          nombres[j + 1] = auxNombre;
-        }
-    }
-}
-
-console.log("Lista ordenada");
-
-for (let i = 0; i < nombres.length; i++) {
-    console.log(nombres[i], promedios[i]);
-}
-
-let buscar = "Luis";
-
-for (let i = 0; i < nombres.length; i++) {
-
+for (let i = 0; i < cantidad; i++) {
     if (nombres[i] == buscar) {
-        console.log("Promedio:", promedios[i]);
+        console.log("Nombre: " + nombres[i]);
+        console.log("Promedio: " + promedios[i]);
     }
 }
 
-console.log("Mejor estudiante:", nombres[0]);
-console.log("Promedio:", promedios[0]);
+// Mejor estudiante
+
+let mayor = promedios[0];
+let mejor = nombres[0];
+
+for (let i = 0; i < cantidad; i++) {
+    if (promedios[i] > mayor) {
+        mayor = promedios[i];
+        mejor = nombres[i];
+    }
+}
+
+console.log("Mejor estudiante: " + mejor);
+console.log("Promedio: " + mayor);

@@ -1,21 +1,38 @@
 cantidad = int(input("Cantidad de estudiantes: "))
 
-nombres = []
-promedios = []
+nombres = [0] * cantidad
+promedios = [0] * cantidad
 
 for i in range(cantidad):
 
-    nombre = input("Nombre: ")
+    nombres[i] = input("Nombre: ")
 
     nota1 = int(input("Nota 1: "))
     nota2 = int(input("Nota 2: "))
     nota3 = int(input("Nota 3: "))
 
-    promedio = (nota1 + nota2 + nota3) / 3
-    print("Promedio de " + nombre + ": " + str(promedio))
-if (nota1 < nota2 and nota1 < nota3) and promedio >= 3:
-    print("El orden desde los promedios es: " + nombres + " Aprobado")
-elif (nota2 < nota1 and nota2 < nota3) and promedio < 3:
-    print(nombre + " Reprobado")
-elif(nota3 < nota1 and nota3 < nota2) and promedio < 3:
-    print(nombre + " Reprobado")
+    promedios[i] = (nota1 + nota2 + nota3) / 3
+
+    print("Promedio de", nombres[i], ":", promedios[i])
+
+# Búsqueda por nombre
+
+buscar = input("Ingrese el nombre a buscar: ")
+
+for i in range(cantidad):
+    if nombres[i] == buscar:
+        print("Nombre:", nombres[i])
+        print("Promedio:", promedios[i])
+
+# Mejor estudiante
+
+mayor = promedios[0]
+mejor = nombres[0]
+
+for i in range(cantidad):
+    if promedios[i] > mayor:
+        mayor = promedios[i]
+        mejor = nombres[i]
+
+print("Mejor estudiante:", mejor)
+print("Promedio:", mayor)
